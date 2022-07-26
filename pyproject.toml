@@ -1,5 +1,6 @@
 [project]
 name = "lebanc"
+description = "something"
 readme = "README.md"
 requires-python = ">=3.7"
 license = {file = "LICENSE"}
