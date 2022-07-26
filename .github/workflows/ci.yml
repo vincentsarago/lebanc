@@ -40,6 +40,6 @@ jobs:
           alert-threshold: 200%
           comment-always: true
           fail-on-alert: true
-          # Make a commit on `gh-pages` only if master
-          auto-push: ${{ github.ref == 'refs/heads/master' }}
+          # Make a commit on `gh-pages` only if main
+          auto-push: ${{ github.ref == 'refs/heads/main' }}
           benchmark-data-dir-path: benchmarks
