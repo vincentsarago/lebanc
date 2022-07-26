@@ -1,0 +1,39 @@
+[project]
+name = "lebanc"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Vincent Sarago", email = "vincent@developmentseed.com"},
+]
+dynamic = ["version"]
+dependencies = ["rio-tiler"]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-benchmark",
+]
+
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+    "pygments",
+]
+
+[build-system]
+requires = ["flit>=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "lebanc"
+
+[tool.flit.sdist]
+exclude = [
+    "tests/",
+    "docs/",
+    ".github/",
+    "CHANGES.md",
+    "CONTRIBUTING.md",
+]
