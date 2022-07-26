@@ -6,7 +6,7 @@ import pytest
 import morecantile
 from rio_tiler.io import COGReader
 import rasterio
-
+import time
 
 cog_path = os.path.join(os.path.dirname(__file__), "fixtures", "world.tif")
 
@@ -24,6 +24,7 @@ def test_benchmark_tile(benchmark, tile):
     """Benchmark tile."""
 
     def read_tile(t):
+        time.sleep(0.1)
         with rasterio.Env(GDAL_CACHEMAX=0, NUM_THREADS="all"):
             with COGReader(cog_path, minzoom=0, maxzoom=8) as cog:
                 return cog.tile(*t)
