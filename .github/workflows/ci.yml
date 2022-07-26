@@ -41,5 +41,5 @@ jobs:
           comment-always: true
           fail-on-alert: true
           # Make a commit on `gh-pages` only if master
-          auto-push: ${{ github.ref == 'refs/heads/master' }}
-          benchmark-data-dir-path: docs/benchmarks
+          auto-push: true
+          benchmark-data-dir-path: benchmarks
