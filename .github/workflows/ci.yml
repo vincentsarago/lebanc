@@ -42,4 +42,4 @@ jobs:
           comment-on-alert: true
           # Make a commit on `gh-pages` only if main
           auto-push: ${{ github.ref == 'refs/heads/main' }}
-          benchmark-data-dir-path: benchmarks
+          gh-pages-branch: gh-benchmarks
