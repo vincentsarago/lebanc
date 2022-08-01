@@ -9,7 +9,7 @@ repo_url: "https://github.com/vincentsarago/lebanc"
 
 nav:
   - Intro: "index.md"
-  - Benchmark: "benchmarks/"
+  - Benchmark: "../benchmarks/"
   - Development - Contributing: "contributing.md"
   - Release Notes: "release-notes.md"
 
