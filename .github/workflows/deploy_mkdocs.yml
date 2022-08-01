@@ -30,4 +30,6 @@ jobs:
           python -m pip install -e .["docs"]
 
       - name: Deploy docs
-        run: mkdocs gh-deploy --force -f docs/mkdocs.yml
+        run: |
+          mkdocs build -f docs/mkdocs.yml
+          ghp-import docs/build -p --force -x docs
