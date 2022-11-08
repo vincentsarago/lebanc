@@ -4,7 +4,7 @@ import os
 
 import pytest
 import morecantile
-from rio_tiler.io import COGReader
+from rio_tiler.io import Reader
 import rasterio
 import time
 
@@ -24,10 +24,9 @@ def test_benchmark_tile(benchmark, tile):
     """Benchmark tile."""
 
     def read_tile(t):
-        # time.sleep(0.1)
-        with rasterio.Env(GDAL_CACHEMAX=0, NUM_THREADS="all"):
-            with COGReader(cog_path, minzoom=0, maxzoom=8) as cog:
-                return cog.tile(*t)
+        time.sleep(0.1)
+        with Reader(cog_path) as cog:
+            return cog.tile(*t)
 
     response = benchmark(read_tile, tile)
 

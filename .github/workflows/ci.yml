@@ -27,20 +27,25 @@ jobs:
           python -m pip install .["test"]
 
       - name: Run Benchmark
-        run: python -m pytest --benchmark-only --benchmark-columns 'min, max, mean, median' --benchmark-json output.json
+        run: python -m pytest --benchmark-only --benchmark-columns 'min, max, mean, median' --benchmark-json data.json
 
-      - name: Push benchmark result
-        uses: benchmark-action/github-action-benchmark@v1
+      - name: Run the action
+        uses: nils-braun/pytest-benchmark-commenter@v2
         with:
-          name: Benchmarks
-          tool: pytest
-          output-file-path: output.json
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          # Alert with a commit comment on possible performance regression
-          alert-threshold: 200%
-          fail-on-alert: true
-          comment-on-alert: true
-          # Make a commit on `gh-pages` only if main
-          auto-push: ${{ github.ref == 'refs/heads/main' }}
-          gh-pages-branch: main
-          benchmark-data-dir-path: .github/benchmark
+          comparison-benchmark-file: .github/benchmark/data.json
+
+      # - name: Push benchmark result
+      #   uses: benchmark-action/github-action-benchmark@v1
+      #   with:
+      #     name: Benchmarks
+      #     tool: pytest
+      #     output-file-path: output.json
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     # Alert with a commit comment on possible performance regression
+      #     alert-threshold: 200%
+      #     fail-on-alert: true
+      #     comment-on-alert: true
+      #     # Make a commit on `gh-pages` only if main
+      #     auto-push: ${{ github.ref == 'refs/heads/main' }}
+      #     gh-pages-branch: main
+      #     benchmark-data-dir-path: .github/benchmark

@@ -8,7 +8,7 @@ authors = [
     {name = "Vincent Sarago", email = "vincent@developmentseed.com"},
 ]
 dynamic = ["version"]
-dependencies = ["rio-tiler"]
+dependencies = ["rio-tiler>=4.0.0a0"]
 
 [project.optional-dependencies]
 test = [
